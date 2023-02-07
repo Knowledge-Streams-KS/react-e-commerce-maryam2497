@@ -4,23 +4,26 @@ import './list.css'
 
 // received products as props from product.jsx
 const List = ({ products }) => {
-  const [searchTerm, setSearchTerm] = useState('');
+  const [txtSearch, setTxtSearch] = useState('');
 
   const handleSearch = (event) => {
-    setSearchTerm(event.target.value.toLowerCase());
+    // whatever value will be in txtSearch will be converted to lower case for it to work for both lower and uper case
+    setTxtSearch(event.target.value.toLowerCase());
   };
 
   const filteredProducts = products.filter((product) => {
-    return product.title.toLowerCase().includes(searchTerm);
+    return product.title.toLowerCase().includes(txtSearch);
   });
 
   return (
     <div className="list-container">
       <div className="search-container">
-        <input type="text" value={searchTerm} onChange={handleSearch} />
+        {/* seach bar text will be store in txtSearch and handleSearch will be called every time txt change */}
+        <input type="text" value={txtSearch} onChange={handleSearch} />
         <button>Search</button>
       </div>
       {/* mapping the products,sending products to card.jsx as props */}
+      {/* create a new array of filteredProducts that only includes products whose title includes the lower case  */}
       {filteredProducts.map(p => (
         <Card
           key={p.id}
