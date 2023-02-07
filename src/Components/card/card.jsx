@@ -1,5 +1,5 @@
 import React from 'react';
-// import './card.css'
+import './card.css'
 
 const Card = ({ title, price, category, description, image }) => (
     <div className="card-container">
