@@ -20,7 +20,7 @@ const List = ({ products }) => {
       <div className="search-container">
         {/* seach bar text will be store in txtSearch and handleSearch will be called every time txt change */}
         <input type="text" value={txtSearch} onChange={handleSearch} />
-        <button>Search</button>
+        {/* <button>Search</button> */}
       </div>
       {/* mapping the products,sending products to card.jsx as props */}
       {/* create a new array of filteredProducts that only includes products whose title includes the lower case  */}
