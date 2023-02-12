@@ -18,7 +18,10 @@ function App() {
           <Route path='/categories' element={<Categories/>}></Route>
           <Route path='/product/:category?' element={<Product/>}></Route>
           <Route path='/productDetails/:id' element={<ProductDetails/>}></Route>
-         
+          <Route path='/checkout' element={<Cart/>}>
+          <Route path='userDetailForm' element={<UserDetailForm/>}></Route>
+          <Route path='orderConfirmation' element={<OrderConfirmation/>}></Route>
+          </Route>
           <Route path='/' element={<Home/>}></Route>
           <Route path='/*' element={<Error/>}></Route>
         </Route></Routes>
