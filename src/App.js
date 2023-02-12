@@ -6,21 +6,23 @@ import Error from './Pages/error/error';
 import axios from 'axios';
 import { Route, Routes } from 'react-router-dom';
 import Categories from './Pages/categories/categories';
+
 import ProductDetails from './Pages/productDetails/productDetails';
 
 function App() {
   return (
     <div className="App">
-       <Routes>
+        <Routes>
         <Route  path='/' element={<NavBar />}>
         <Route path='home' element={<Home />}></Route>
           <Route path='/categories' element={<Categories/>}></Route>
-          <Route path='/product' element={<Product/>}></Route>
-          <Route path='/productDetails' element={<ProductDetails/>}></Route>
-          
+          <Route path='/product/:category?' element={<Product/>}></Route>
+          <Route path='/productDetails/:id' element={<ProductDetails/>}></Route>
+         
           <Route path='/' element={<Home/>}></Route>
           <Route path='/*' element={<Error/>}></Route>
         </Route></Routes>
+
     </div>
   );
 }
