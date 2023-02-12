@@ -30,12 +30,67 @@ const Product = () => {
       .finally();
 }
 },[])
+const AscHandler = () => {
+  let sortproduct = [...product];
+  sortproduct = sortproduct.sort((val1, val2) => {
+    return val1.price - val2.price;
+  });
+  setProduct(sortproduct);
+};
 
+const DescHandler = () => {
+  let sortproduct = [...product];
+  sortproduct = sortproduct.sort((val1, val2) => {
+    return val2.price - val1.price;
+  });
+  setProduct(sortproduct);
+};
+const AtoZHandler = () => {
+  let sortproduct = [...product];
+  sortproduct = sortproduct.sort((val1, val2) => {
+    if (val1.title > val2.title) return 1;
+    if (val2.title > val1.title) return -1;
+  });
+  setProduct(sortproduct);
+};
 
+const ZtoAHandler = () => {
+  let sortproduct = [...product];
+  sortproduct = sortproduct.sort((val1, val2) => {
+    if (val2.title > val1.title) return 1;
+    if (val1.title > val2.title) return -1;
+  });
+  setProduct(sortproduct);
+};
+const handleChange = (event) => {
+  switch (event.target.value) {
+    case "lowToHigh":
+      AscHandler();
+      break;
+    case "highToLow":
+      DescHandler();
+      break;
+    case "AtoZ":
+      AtoZHandler();
+      break;
+    case "ZtoA":
+      ZtoAHandler();
+      break;
+    default:
+      break;
+  }
+};
 
   return (<div> 
    
-  
+   <select class="dropdown" onChange={handleChange}>
+      <option value="">Sort by</option>
+      <option value="lowToHigh">Low to high price</option>
+      <option value="highToLow">High to low price</option>
+      <option value="AtoZ">Sort A-Z</option>
+      <option value="ZtoA">Sort Z-A</option>
+   </select>
+
 <div className="product-container">
     <List products={product} />
     
