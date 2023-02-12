@@ -27,4 +27,7 @@ return (
   </div>
 );
 };
+
 export default Categories;
+
+
