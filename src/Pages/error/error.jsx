@@ -1,7 +1,7 @@
-
 const Error = () => (
-    <div>error
-  </div>
+  <div >
+  <p>error page</p>
+</div>
 );
 
 export default Error;
