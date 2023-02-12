@@ -6,8 +6,14 @@ import Error from './Pages/error/error';
 import axios from 'axios';
 import { Route, Routes } from 'react-router-dom';
 import Categories from './Pages/categories/categories';
-
 import ProductDetails from './Pages/productDetails/productDetails';
+import NavBar from './Components/navBar/navBar';
+import Cart from './Pages/cart/cart';
+import Checkout from './Pages/checkout/checkout';
+import UserDetailForm from './Pages/userDetailForm/userDetailForm';
+import OrderConfirmation from './Pages/orderConfirmation/orderConfirmation';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.min.js';
 
 function App() {
   return (
@@ -25,7 +31,6 @@ function App() {
           <Route path='/' element={<Home/>}></Route>
           <Route path='/*' element={<Error/>}></Route>
         </Route></Routes>
-
     </div>
   );
 }
