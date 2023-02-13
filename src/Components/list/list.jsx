@@ -6,7 +6,6 @@ const List = ({ products }) => {
   const [txtSearch, setTxtSearch] = useState('');
 
   const handleSearch = (event) => {
-    // whatever value will be in txtSearch will be converted to lower case for it to work for both lower and uper case
     setTxtSearch(event.target.value.toLowerCase());
   };
   const filteredProducts = products.filter((product) => {

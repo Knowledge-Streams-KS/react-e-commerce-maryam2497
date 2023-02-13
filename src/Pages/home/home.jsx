@@ -9,6 +9,9 @@ const Home = () => (
       <br/>
       <br/>
       <Link to="/categories">Categories</Link>
+      <br />
+        <br />
+        <Link to="/userDetailForm">User Detail Form</Link>
   </div>
 );
 

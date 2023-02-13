@@ -1,7 +1,92 @@
+import React, { useState } from "react";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
 
-const UserDetailForm=()=>{
-    return(<div>
-       
-    </div>)
-}
+const UserDetailForm = () => {
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    address: "",
+    city: "",
+    postalCode: "",
+    phoneNumber: "",
+    password: ""
+  });
+
+  const handleSubmit = values => {
+    setFormData(values);
+    console.log("Form data", formData);
+  };
+
+  const validationSchema = Yup.object().shape({
+    firstName: Yup.string().required("First name is required"),
+    lastName: Yup.string().required("Last name is required"),
+    email: Yup.string()
+      .email("Invalid email address")
+      .required("Email is required"),
+    address: Yup.string().required("Address is required"),
+    city: Yup.string().required("City is required"),
+    postalCode: Yup.string().required("Postal code is required"),
+    phoneNumber: Yup.string()
+      .matches(
+        /^((\+92)?(0092)?(92)?(0)?)(3)([0-9]{9})$/,
+        "Invalid phone number format"
+      )
+      .required("Phone number is required"),
+    password: Yup.string()
+      .matches(
+        /^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{6,}$/,
+        "Password must contain at least 6 characters, one upper-case letter and a number"
+      )
+      .required("Password is required")
+  });
+
+  return (
+    <Formik
+      initialValues={{
+        firstName: "",
+        lastName: "",
+        email: "",
+        address: "",
+        city: "",
+        postalCode: "",
+        phoneNumber: "",
+        password: ""
+      }}
+      onSubmit={handleSubmit}
+      validationSchema={validationSchema}
+    >
+      {({ isSubmitting }) => (
+        <Form>
+          <Field type="text" name="firstName" placeholder="First Name..." />
+          <ErrorMessage name="firstName" component="div" />
+          <br />
+          <Field type="text" name="lastName" placeholder="Last Name..." />
+          <ErrorMessage name="lastName" component="div" />
+          <br />
+          <Field type="email" name="email" placeholder="Email..." />
+          <ErrorMessage name="email" component="div" />
+          <br />
+          <Field type="text" name="address" placeholder="Address..." />
+          <ErrorMessage name="address" component="div" />
+          <br />
+          <Field type="text" name="city" placeholder="City..." />
+          <ErrorMessage name="city" component="div" />
+          <br />
+          <Field type="text" name="postalCode" placeholder="Postal Code..." />
+          <ErrorMessage name="postalCode" component="div" />
+          <br />
+          <Field type="text" name="phoneNumber" placeholder="Phone Number..." />
+          <ErrorMessage name="phoneNumber" component="div" />
+          <br />
+         
+          <button type="submit" disabled={isSubmitting}>
+            Submit
+          </button>
+        </Form>
+      )}
+    </Formik>
+  );
+};
 export default UserDetailForm;
