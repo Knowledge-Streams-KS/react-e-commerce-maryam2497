@@ -11,15 +11,16 @@ const UserDetailForm = () => {
     city: "",
     postalCode: "",
     phoneNumber: "",
-    password: ""
+    password: "",
   });
 
-  const handleSubmit = values => {
+  const handleSubmit = (values) => {
     setFormData(values);
     console.log("Form data", formData);
   };
 
   const validationSchema = Yup.object().shape({
+    country: Yup.string().required("Country is required"),
     firstName: Yup.string().required("First name is required"),
     lastName: Yup.string().required("Last name is required"),
     email: Yup.string()
@@ -34,17 +35,12 @@ const UserDetailForm = () => {
         "Invalid phone number format"
       )
       .required("Phone number is required"),
-    password: Yup.string()
-      .matches(
-        /^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{6,}$/,
-        "Password must contain at least 6 characters, one upper-case letter and a number"
-      )
-      .required("Password is required")
   });
 
   return (
     <Formik
       initialValues={{
+        country: "",
         firstName: "",
         lastName: "",
         email: "",
@@ -52,13 +48,23 @@ const UserDetailForm = () => {
         city: "",
         postalCode: "",
         phoneNumber: "",
-        password: ""
+        password: "",
       }}
       onSubmit={handleSubmit}
       validationSchema={validationSchema}
     >
       {({ isSubmitting }) => (
         <Form>
+          <Field as="select" name="country" placeholder="Select Country/Region">
+            <option value="">Select Country/Region</option>
+            <option value="Pakistan">Pakistan</option>
+            <option value="Iran">Iran</option>
+            <option value="Iraq">Iraq</option>
+            <option value="Afghanistan">Afghanistan</option>
+            <option value="India">India</option>
+          </Field>
+          <ErrorMessage name="country" component="div" />
+          <br />
           <Field type="text" name="firstName" placeholder="First Name..." />
           <ErrorMessage name="firstName" component="div" />
           <br />
@@ -80,7 +86,7 @@ const UserDetailForm = () => {
           <Field type="text" name="phoneNumber" placeholder="Phone Number..." />
           <ErrorMessage name="phoneNumber" component="div" />
           <br />
-         
+
           <button type="submit" disabled={isSubmitting}>
             Submit
           </button>
