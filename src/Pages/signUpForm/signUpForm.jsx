@@ -32,9 +32,7 @@ const SignUpForm = () => {
     password: Yup.string()
       .min(6, "Password must be at least 6 characters")
       .required("Password is required"),
-      passwordConfirmation: Yup.string()
-      .min(6, "Password must be at least 6 characters")
-      .required("Password is required"),
+      passwordConfirmation: Yup.string().label('confirm password').required().oneOf([Yup.ref('password'), null], 'Passwords must match'),
   });
 
   return (
@@ -72,7 +70,7 @@ const SignUpForm = () => {
             name="passwordConfirmation"
             placeholder="Comfirm Password..."
           />
-          <ErrorMessage name="password" component="div" />
+          <ErrorMessage name="passwordConfirmation" component="div" />
           <br />
           <button type="submit" disabled={isSubmitting}>
             Submit
