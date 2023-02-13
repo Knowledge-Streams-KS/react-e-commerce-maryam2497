@@ -13,7 +13,7 @@ import Checkout from './Pages/checkout/checkout';
 import UserDetailForm from './Pages/userDetailForm/userDetailForm';
 import OrderConfirmation from './Pages/orderConfirmation/orderConfirmation';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.min.js';
+import LoginForm from './Pages/loginForm/loginForm';
 
 function App() {
   return (
@@ -28,6 +28,7 @@ function App() {
           <Route path='userDetailForm' element={<UserDetailForm/>}></Route>
           <Route path='orderConfirmation' element={<OrderConfirmation/>}></Route>
           </Route>
+          <Route path='/loginForm' element={<LoginForm/>}></Route>
           <Route path='/' element={<Home/>}></Route>
           <Route path='/*' element={<Error/>}></Route>
         </Route></Routes>
