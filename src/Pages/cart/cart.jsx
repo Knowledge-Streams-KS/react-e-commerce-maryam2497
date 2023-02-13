@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 const Cart=()=>{
     return(<div>
@@ -6,7 +6,7 @@ const Cart=()=>{
        <Link to='/checkout/userDetailForm'>User Detail Form</Link>
        {/* <br />
        <Link to='/checkout/orderConfirmation'>order Confirmation</Link> */}
-       
+       <Outlet/>
     </div>)
 }
 export default Cart;
