@@ -14,6 +14,7 @@ import UserDetailForm from './Pages/userDetailForm/userDetailForm';
 import OrderConfirmation from './Pages/orderConfirmation/orderConfirmation';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import LoginForm from './Pages/loginForm/loginForm';
+import SignUpForm from './Pages/signUpForm/signUpForm';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           <Route path='orderConfirmation' element={<OrderConfirmation/>}></Route>
           </Route>
           <Route path='/loginForm' element={<LoginForm/>}></Route>
+          <Route path='/signUpForm' element={<SignUpForm/>}></Route>
           <Route path='/' element={<Home/>}></Route>
           <Route path='/*' element={<Error/>}></Route>
         </Route></Routes>
