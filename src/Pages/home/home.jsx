@@ -12,6 +12,9 @@ const Home = () => (
       <br/>
       <br/>
       <Link to="/loginForm">Login</Link>
+      <br/>
+      <br/>
+      <Link to="/signUpForm">SignUp</Link>
   </div>
 );
 

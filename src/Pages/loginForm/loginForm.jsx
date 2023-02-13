@@ -33,10 +33,10 @@ const LoginForm = () => {
     >
       {({ isSubmitting }) => (
         <Form>
-          <Field type="email" name="email" placeholder="Email" />
+          <Field type="email" name="email" placeholder="Email..." />
           <ErrorMessage name="email" component="div" />
           <br/>
-          <Field type="password" name="password" placeholder="Password" />
+          <Field type="password" name="password" placeholder="Password..." />
           <ErrorMessage name="password" component="div" />
           <br />
           <button type="submit" disabled={isSubmitting}>
