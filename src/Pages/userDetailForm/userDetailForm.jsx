@@ -93,6 +93,7 @@ const UserDetailForm = () => {
         </Form>
       )}
     </Formik>
+    
   );
 };
 export default UserDetailForm;
