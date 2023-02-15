@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import { Link } from "react-router-dom";
 
 const LoginForm = () => {
   const [formData, setFormData] = useState({
@@ -39,9 +40,11 @@ const LoginForm = () => {
           <Field type="password" name="password" placeholder="Password..." />
           <ErrorMessage name="password" component="div" />
           <br />
+          <Link to="/home">
           <button type="submit" disabled={isSubmitting}>
             Submit
           </button>
+          </Link>
         </Form>
       )}
     </Formik>

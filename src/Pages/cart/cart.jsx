@@ -1,9 +1,25 @@
+import { useDispatch, useSelector } from "react-redux";
 import { Link, Outlet } from "react-router-dom";
+import { removeFromCart } from "../../redux/cart/action";
+import { REMOVE_FROM_CART } from "../../redux/cart/type";
 
 const Cart=()=>{
+    const dispatch= useDispatch();
+    const data= useSelector(store=>store);
+    const quantity= data.quantity;
+   
     return(<div>
        <h1>Cart Page</h1>
        <Link to='/checkout/userDetailForm'>User Detail Form</Link>
+       {data.product.map(product=>(
+          <div>
+          <p>{product.id}</p>
+          <p>{product.title}</p>
+          <button onClick={()=>{
+        dispatch(removeFromCart(product))
+    }}>Remove</button>
+          </div>
+        ))}
        {/* <br />
        <Link to='/checkout/orderConfirmation'>order Confirmation</Link> */}
        <Outlet/>
