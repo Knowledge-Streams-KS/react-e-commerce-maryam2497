@@ -3,7 +3,7 @@ export const addToCart = (product) => {
   return{
   type: ADD_TO_CART,
   payload: {
-    product: { ...product, quantity: 1 },
+    product:product,
   },
   }
 };
@@ -12,3 +12,4 @@ export const removeFromCart = product => ({
   type: REMOVE_FROM_CART,
   payload: {product}
 });
+

@@ -4,11 +4,11 @@ import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import "./productDetails.css";
 import { addToCart } from "../../redux/cart/action";
-import { increment, decrement } from "../../redux/counter/counterAction";
+import Counter from "../../Components/counter/counter";
 
 const ProductDetails = () => {
   const [product, setProduct] = useState({});
-  const [quantity, setQuantity] = useState({});
+  const [count, setCount] = useState(1);
   const { id } = useParams();
   const dispatch = useDispatch();
 
@@ -24,20 +24,21 @@ const ProductDetails = () => {
   }, [id]);
 
   const handleAddToCart = () => {
-    dispatch(addToCart(product));
+    dispatch(addToCart({...product,count}));
   };
 
-  // const handleIncrement = () => {
-  //   setQuantity(quantity + 1);
-  //   dispatch(increment());
+  
+  // const incrementHandler = () => {
+  //   setCount(count+1)
   // };
-
-  // const handleDecrement = () => {
-  //   if (quantity > 1) {
-  //     setQuantity(quantity - 1);
-  //     dispatch(decrement());
-  //   }
+  
+  // const decrementHandler = () => {
+  //   if(count>0){setCount(count-1);}
+    
   // };
+  const handCountChange = (count) => {
+    setCount(count);
+  };
 
   return (
     <div className="product-details-container">
@@ -45,15 +46,8 @@ const ProductDetails = () => {
       <p className="productDetailDescription">{product.description}</p>
       <img src={product.image} alt={product.title} />
       <p className="productDetailPrice">Price: ${product.price}</p>
-      {/* <div>
-        <button onClick={handleDecrement} >
-          -
-        </button>
-        <span >{quantity}</span>
-        <button onClick={handleIncrement} >
-          +
-        </button>
-      </div> */}
+      <Counter props={product.count} onCountChange={handCountChange}
+       ></Counter>
       <button onClick={handleAddToCart}>Add to Cart</button>
     </div>
   );
