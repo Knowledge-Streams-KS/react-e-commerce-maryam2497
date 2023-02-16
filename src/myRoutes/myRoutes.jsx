@@ -13,10 +13,10 @@ import SignUpForm from '../Pages/signUpForm/signUpForm';
 import Error from '../Pages/error/error';
 import OrderConfirmation from '../Pages/orderConfirmation/orderConfirmation';
 import CheckOut from '../Pages/checkout/checkout';
-
+import PrivateRoutes from './privateRoutes';
 const MyRoutes = () => {
   
-  const userLoggedIn = localStorage.getItem("token");
+  // const userLoggedIn = localStorage.getItem("token");
   return (
        <Routes>
         <Route  path='/' element={<NavBar />}>
@@ -24,10 +24,20 @@ const MyRoutes = () => {
           <Route path='/categories' element={<Categories/>}></Route>
           <Route path='/product/:category?' element={<Product/>}></Route>
           <Route path='/productDetails/:id' element={<ProductDetails/>}></Route>
-          <Route path='/checkout' element={<Cart/>}>
-          {/* //  element={userLoggedIn ?<Cart/> : <Navigate to="/loginForm"/>}> */}
-          <Route path='userDetailForm' element={<UserDetailForm/>}></Route>
-          <Route path='orderConfirmation' element={<OrderConfirmation/>}></Route>
+          <Route path='/checkout' element={
+          <PrivateRoutes>
+            <Cart/>
+           </PrivateRoutes>}>
+          <Route path='userDetailForm' element={
+          <privateRoutes>
+            <UserDetailForm/>
+           </privateRoutes>
+          }></Route>
+          <Route path='orderConfirmation' element={
+            <PrivateRoutes>
+          <OrderConfirmation/>
+           </PrivateRoutes>
+          }></Route>
           </Route>
           <Route path='/loginForm' element={<LoginForm/>}></Route>
           <Route path='/signUpForm' element={<SignUpForm/>}></Route>
