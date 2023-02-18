@@ -21,7 +21,7 @@
     justify-content: center;
   }
   
-  .btn {
+  .home-btn {
     background-color: #e99b9b;
     border: none;
     border-radius: 5px;
@@ -33,7 +33,7 @@
     transition: all 0.2s;
   }
   
-  .btn:hover {
+  .home-btn:hover {
     background-color: #50595c;
     color: #ffd8d8;
   }

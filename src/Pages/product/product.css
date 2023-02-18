@@ -1,8 +1,36 @@
-/* .dropdown {
-  width: 100px;
-  height: 30px;
-  font-size: 14px;
-  border: 1px solid gray;
-  border-radius: 5px;
-  padding: 5px;
-  } */
+.product-page {
+  background-color: #302939;
+  color: #fff;
+  padding: 20px;
+}
+
+.sort-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.sort-dropdown {
+  background-color: #50595c;
+  color: #ffd8d8;
+  border: none;
+  border-radius: 4px;
+  padding: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  outline: none;
+}
+
+.sort-dropdown option {
+  background-color: #50595c;
+  color: #ffd8d8;
+}
+
+.product-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+  padding: 2rem;
+}
+

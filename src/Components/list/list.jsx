@@ -6,7 +6,6 @@ const List = ({ products }) => {
   const [txtSearch, setTxtSearch] = useState('');
 
   const handleSearch = (event) => {
-    // whatever value will be in txtSearch will be converted to lower case for it to work for both lower and uper case
     setTxtSearch(event.target.value.toLowerCase());
   };
   const filteredProducts = products.filter((product) => {
@@ -14,12 +13,14 @@ const List = ({ products }) => {
   });
 
   return (
-    <div className="list-container">
-      <div className='search-container'>
-        <input type="text" placeholder='Search....' value={txtSearch} onChange={handleSearch} />
-        <button>Search</button>
-      </div>
+    <div>
+    <div className="list-search">
+        <input  type="text" placeholder='Search....' value={txtSearch} onChange={handleSearch} />
+        <button >Search</button>
+    </div>
+    <div  className="list-container">
       {filteredProducts.map(p => (
+       
         <Card
           id={p.id}
           title={p.title}
@@ -28,7 +29,9 @@ const List = ({ products }) => {
           description={p.description}
           image={p.image}
         />
+        
       ))}
+  </div>
     </div>
   );
 };
