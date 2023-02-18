@@ -1,8 +1,11 @@
+
 .home {
     background-color: #302939;
     color: #ffd8d8;
     padding: 20px;
     text-align: center;
+    height: 100vh;
+    /* width: 100%; */
   }
   
   .home h1 {
