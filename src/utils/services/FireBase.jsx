@@ -16,8 +16,7 @@ export const SignIn = (values,navigate,location) => {
       window.location.reload();
     })
     .catch((error) => {
-      const errorCode = error.code;
-      alert("error",errorCode)
+      alert("the Email or Password is incorrect")
     });
  
   }
@@ -31,5 +30,7 @@ export const SignIn = (values,navigate,location) => {
         window.location.reload();
       })
       .catch((error) => {
+        const errorCode = error.code;
+      alert("error",errorCode)
       });
   }
