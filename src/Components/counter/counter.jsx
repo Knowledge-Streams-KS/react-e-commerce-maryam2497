@@ -5,12 +5,10 @@ import { addToCart } from "../../redux/cart/action";
 const Counter = ({ onCountChange,props }) => {
   const [count,setCount]=useState(props??1);
   const dispatch = useDispatch();
-  // const product = useSelector(state=>state)
   const increment = () =>{
     const newCount = count+1;
     setCount(newCount);
     onCountChange(newCount);
-    // dispatch(addToCart({...product,count}));
   };
   
   const decrement = () =>{

@@ -1,4 +1,5 @@
 import { ADD_TO_CART, REMOVE_FROM_CART } from "./cartType";
+import { UPDATE_COUNT } from "./cartType";
 export const addToCart = (product) => {
   return{
   type: ADD_TO_CART,
@@ -13,3 +14,8 @@ export const removeFromCart = product => ({
   payload: {product}
 });
 
+
+export const updateCount = (id, count) => ({
+  type: UPDATE_COUNT,
+  payload: { id, count },
+});
