@@ -27,15 +27,7 @@ const ProductDetails = () => {
     dispatch(addToCart({...product,count}));
   };
 
-  
-  // const incrementHandler = () => {
-  //   setCount(count+1)
-  // };
-  
-  // const decrementHandler = () => {
-  //   if(count>0){setCount(count-1);}
-    
-  // };
+ 
   const handCountChange = (count) => {
     setCount(count);
   };

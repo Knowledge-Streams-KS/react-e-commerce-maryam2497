@@ -4,18 +4,21 @@ import { Link, Outlet } from "react-router-dom";
 import Counter from "../../Components/counter/counter";
 import { removeFromCart } from "../../redux/cart/action";
 import { REMOVE_FROM_CART } from "../../redux/cart/cartType";
+import { updateCount } from "../../redux/cart/action";
 
 const Cart=()=>{
     const dispatch= useDispatch();
     const data= useSelector(store=>store);
     const [count,setCount]= useState();
-    // const count= data.count;
     console.log(data)
     
+ 
     
-    const handCountChange = (count) => {
-      setCount(count);
-    };
+      const handCountChange = (count, id) => {
+        dispatch(updateCount(id, count));
+      };
+    
+    
 
     return(<div>
        <h1>Cart Page</h1>
@@ -27,8 +30,8 @@ const Cart=()=>{
           <tr>{product.title}</tr>
           <td>{product.price}</td>
           <td><img src={product.image} alt={product.title} /></td>
-          {/* <td>{product.count}</td> */}
-          <td><Counter props={product.count} onCountChange={handCountChange}></Counter></td>
+          <td><Counter props={product.count} onCountChange={(count) => handCountChange(count, product.id)}></Counter></td>
+          <td>{product.count}</td>
           </div>
         ))}
         

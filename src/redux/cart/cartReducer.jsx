@@ -1,9 +1,9 @@
 import { addToCart } from "./action";
 import { ADD_TO_CART,REMOVE_FROM_CART } from "./cartType";
+import { UPDATE_COUNT } from "./cartType";
 
 const initialState = {
   product: [],
-  // count:[],
 };
 
 const cartReducer = (state = initialState, action) => {
@@ -39,10 +39,17 @@ const cartReducer = (state = initialState, action) => {
        product:newProducts,
       };
    
-      // case INCREMENT:
-      //   return {
-      //     Let
-      //   };
+      case UPDATE_COUNT:
+        const updatedProducts = state.product.map((product) => {
+          if (product.id === action.payload.id) {
+            return { ...product, count: action.payload.count };
+          }
+          return product;
+        });
+        return {
+          ...state,
+          product: updatedProducts,
+        };
       default:
       return state;
   }
