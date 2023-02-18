@@ -66,7 +66,7 @@ createUserWithEmailAndPassword(auth, values.email, values.password)
           <ErrorMessage name="password" component="div" />
           <br /></div>
           <button type="submit" disabled={isSubmitting} className="submit-button">
-            Submit
+            Sign Up
           </button>
           <Link to="/loginForm" className="already-user-link">Already a User?</Link>
         </Form>

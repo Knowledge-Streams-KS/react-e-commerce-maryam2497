@@ -12,15 +12,7 @@ const LoginForm = () => {
   const reDirect= useLocation();
   const location= reDirect.state?.redirectedForm.pathname;
  
-  // const [formData, setFormData] = useState({
-  //   email: "",
-  //   password: ""
-  // });
-
-
   const handleSubmit = (values) => {
-    // setFormData(values);
-    // console.log("Form data", formData);
     SignIn(values,navigate,location);
   };
 
@@ -43,17 +35,21 @@ const LoginForm = () => {
       validationSchema={validationSchema}
     >
       {
-        <Form>
+        <Form className="signup-form">
+           <div className="form-field">
           <Field type="email" name="email" placeholder="Email..."  />
           <ErrorMessage name="email" component="div" />
           <br/>
+          </div>
+          <div className="form-field">
           <Field type="password" name="password" placeholder="Password..."  />
           <ErrorMessage name="password" component="div" />
           <br />
-       
-          <button type="submit" >
-            Submit
+          </div>
+          <button type="submit" className="submit-button">
+            Sign In
           </button>
+          <Link to="/loginForm" className="already-user-link">Create An Account</Link>
     
         </Form>
       }
