@@ -1,0 +1,21 @@
+
+.counter {
+    display: flex;
+    align-items: center;
+  }
+  
+  .counter-btn {
+     background-color: #e99b9b;
+    color: #f5efef;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .counter-value {
+    font-size: 24px;
+    margin: 0 10px;
+  }
+  
+  

@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-
+import './userDetailForm.css'
+import { Link } from "react-router-dom";
 const UserDetailForm = () => {
   const [formData, setFormData] = useState({
     firstName: "",
@@ -13,11 +14,20 @@ const UserDetailForm = () => {
     phoneNumber: "",
     password: "",
   });
+  const [showModal, setShowModal] = useState(false);
 
   const handleSubmit = (values) => {
     setFormData(values);
     console.log("Form data", formData);
+    setShowModal(true);
   };
+  const handleCloseModal = () => {
+    setShowModal(false);
+  }
+  // const handleSubmit = (values) => {
+  //   setFormData(values);
+  //   console.log("Form data", formData);
+  // };
 
   const validationSchema = Yup.object().shape({
     country: Yup.string().required("Country is required"),
@@ -38,6 +48,7 @@ const UserDetailForm = () => {
   });
 
   return (
+    <div>
     <Formik
       initialValues={{
         country: "",
@@ -54,8 +65,9 @@ const UserDetailForm = () => {
       validationSchema={validationSchema}
     >
       {({ isSubmitting }) => (
-        <Form>
-          <Field as="select" name="country" placeholder="Select Country/Region">
+        <Form className="user-form">
+        <div className="user-form-field">
+          <Field as="select" name="country" className="country-dropdown" placeholder="Select Country/Region">
             <option value="">Select Country/Region</option>
             <option value="Pakistan">Pakistan</option>
             <option value="Iran">Iran</option>
@@ -63,37 +75,52 @@ const UserDetailForm = () => {
             <option value="Afghanistan">Afghanistan</option>
             <option value="India">India</option>
           </Field>
-          <ErrorMessage name="country" component="div" />
-          <br />
-          <Field type="text" name="firstName" placeholder="First Name..." />
-          <ErrorMessage name="firstName" component="div" />
-          <br />
-          <Field type="text" name="lastName" placeholder="Last Name..." />
-          <ErrorMessage name="lastName" component="div" />
-          <br />
-          <Field type="email" name="email" placeholder="Email..." />
-          <ErrorMessage name="email" component="div" />
-          <br />
-          <Field type="text" name="address" placeholder="Address..." />
-          <ErrorMessage name="address" component="div" />
-          <br />
-          <Field type="text" name="city" placeholder="City..." />
-          <ErrorMessage name="city" component="div" />
-          <br />
-          <Field type="text" name="postalCode" placeholder="Postal Code..." />
-          <ErrorMessage name="postalCode" component="div" />
-          <br />
-          <Field type="text" name="phoneNumber" placeholder="Phone Number..." />
-          <ErrorMessage name="phoneNumber" component="div" />
-          <br />
-
-          <button type="submit" disabled={isSubmitting}>
-            Submit
-          </button>
-        </Form>
+          <ErrorMessage name="country" component="div" className="user-form-error" />
+        </div>
+        <div className="user-form-field">
+          <Field type="text" name="firstName" className="user-form-input" placeholder="First Name..." />
+          <ErrorMessage name="firstName" component="div" className="user-form-error" />
+        </div>
+        <div className="user-form-field">
+          <Field type="text" name="lastName" className="user-form-input" placeholder="Last Name..." />
+          <ErrorMessage name="lastName" component="div" className="user-form-error" />
+        </div>
+        <div className="user-form-field">
+          <Field type="email" name="email" className="user-form-input" placeholder="Email..." />
+          <ErrorMessage name="email" component="div" className="user-form-error" />
+        </div>
+        <div className="user-form-field">
+          <Field type="text" name="address" className="user-form-input" placeholder="Address..." />
+          <ErrorMessage name="address" component="div" className="user-form-error" />
+        </div>
+        <div className="user-form-field">
+          <Field type="text" name="city" className="user-form-input" placeholder="City..." />
+          <ErrorMessage name="city" component="div" className="user-form-error" />
+        </div>
+        <div className="user-form-field">
+          <Field type="text" name="postalCode" className="user-form-input" placeholder="Postal Code..." />
+          <ErrorMessage name="postalCode" component="div" className="user-form-error" />
+        </div>
+        <div className="user-form-field">
+          <Field type="text" name="phoneNumber" className="user-form-input" placeholder="Phone Number..." />
+          <ErrorMessage name="phoneNumber" component="div" className="user-form-error" />
+        </div>
+      
+        <button type="submit" disabled={isSubmitting} className="user-submit-button">
+          Submit
+        </button>
+      </Form>
+      
       )}
     </Formik>
+     {showModal && (
+      <div className="user-form-modal">
+        <h3>Press Confirm Order Button to confirm your order</h3>
+           <Link to="/orderConfirmation" className="user-submit-button">Confirm Order</Link>
     
+      </div>
+    )}
+    </div>
   );
 };
 

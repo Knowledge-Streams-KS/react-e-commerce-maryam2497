@@ -33,12 +33,13 @@ const MyRoutes = () => {
             <UserDetailForm/>
            </privateRoutes>
           }></Route>
-          <Route path='orderConfirmation' element={
+          {/* <Route path='orderConfirmation' element={
             <PrivateRoutes>
           <OrderConfirmation/>
            </PrivateRoutes>
-          }></Route>
+          }></Route> */}
           </Route>
+          <Route path='/orderConfirmation' element={<OrderConfirmation/>}></Route>
           <Route path='/loginForm' element={<LoginForm/>}></Route>
           <Route path='/signUpForm' element={<SignUpForm/>}></Route>
           <Route path='/' element={<Home/>}></Route>

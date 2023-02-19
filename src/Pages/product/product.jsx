@@ -81,15 +81,16 @@ const handleChange = (event) => {
   }
 };
 
-  return (<div> 
-   
-   <select class="dropdown" onChange={handleChange}>
+  return (<div className="product-page"> 
+         <div className="sort-container">
+   <select class="sort-dropdown" onChange={handleChange}>
       <option value="">Sort by</option>
       <option value="lowToHigh">Low to high price</option>
       <option value="highToLow">High to low price</option>
       <option value="AtoZ">Sort A-Z</option>
       <option value="ZtoA">Sort Z-A</option>
    </select>
+   </div>
 
 <div className="product-container">
     <List products={product} />

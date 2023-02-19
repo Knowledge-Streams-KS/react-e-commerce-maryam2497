@@ -1,0 +1,68 @@
+body{
+    height: 100vh;
+    background-color: #302939;
+    align-items: center;
+}
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+    background-color: rgba(243, 170, 170, 0.5);
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    height: 40vh;
+    width: 40vh;
+  }
+  
+  .form-field {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 10px;
+    
+  }
+  
+  .form-field input {
+    background-color: #f1f1f1;
+    color: #302939;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    margin-right: 10px;
+    width: 30vh;
+  }
+  
+  .form-field input:focus {
+    outline: none;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+  }
+  
+  .form-error {
+    color: red;
+  }
+  
+ 
+  .submit-button {
+    background-color: #e99b9b;
+    color: #f5efef;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    transition: all 0.2s ease-in-out;
+    
+  }
+  
+  .submit-button:hover {
+    background-color: #50595c;
+    color: #ffd8d8;
+  }
+  .already-user-link {
+    color: #f1de03;
+    font-size: 14px;
+    margin-top: 10px;
+    font-weight: bold;
+  }

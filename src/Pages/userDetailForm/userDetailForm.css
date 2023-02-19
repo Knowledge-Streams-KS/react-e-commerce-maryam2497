@@ -1,0 +1,101 @@
+
+
+  .user-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1rem;
+    background-color: gray;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    height: 100vh;
+    width: 50vh;
+  }
+  
+  .user-form-field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+  }
+  
+  .user-form-input {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+  }
+  
+  .user-form-error {
+    color: red;
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+  }
+  .user-submit-button {
+    background-color: #e99b9b;
+    color: #f5efef;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    transition: all 0.2s ease-in-out;
+    /* margin-left:25% ; */
+    
+  }
+  
+  .user-submit-button:hover {
+    background-color: #50595c;
+    color: #ffd8d8;
+  }
+  .country-dropdown {
+    background-color: #50595c;
+    color: #ffd8d8;
+    border: none;
+    border-radius: 4px;
+    padding: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    outline: none;
+  }
+  
+  .country-dropdown option {
+    background-color: #50595c;
+    color: #ffd8d8;
+  }
+
+  .user-form-modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 999;
+  }
+  
+  .user-form-modal h3 {
+    font-size: 1.5rem;
+    color: white;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  
+  .user-form-modal .user-submit-button {
+    background-color: #007bff;
+    border: none;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    text-decoration: none;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  .user-form-modal .user-submit-button:hover {
+    background-color: #0069d9;
+  }
+  
