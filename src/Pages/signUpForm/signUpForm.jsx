@@ -56,6 +56,7 @@ createUserWithEmailAndPassword(auth, values.email, values.password)
     >
       {({ isSubmitting }) => (
         <Form className="signup-form">
+        
           <div className="form-field">
           <Field type="email" name="email" placeholder="Email..." />
           <ErrorMessage name="email" component="div" />

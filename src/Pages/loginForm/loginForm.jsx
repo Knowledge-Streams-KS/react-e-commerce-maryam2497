@@ -48,7 +48,7 @@ const LoginForm = () => {
           </div>
           <button type="submit" className="submit-button">
             Sign In
-          </button>
+          </button><br/>
           <Link to="/loginForm" className="already-user-link">Create An Account</Link>
     
         </Form>
