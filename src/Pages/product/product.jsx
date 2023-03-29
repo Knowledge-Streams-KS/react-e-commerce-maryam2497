@@ -11,7 +11,7 @@ const Product = () => {
  
   useEffect(() =>{
   if(category){ 
-    axios.get(`https://fakestoreapi.com/products/category/${category}`)
+    axios.get(`http://localhost:4000/Product/getProductByCategory?category=${category}`)
       .then(response => {
         setProduct(response.data);
       console.log(response.data);
@@ -22,7 +22,7 @@ const Product = () => {
       .finally();}
 
   else {
-    axios.get('https://fakestoreapi.com/products')
+    axios.get('http://localhost:4000/Product/getProducts')
       .then((response => {
         setProduct(response.data);
       }))
